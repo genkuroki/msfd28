@@ -1,0 +1,167 @@
+---
+title: Weaveによる文書作成のテスト
+author: 黒木 玄
+date: 2019-03-13
+---
+
+ノートブック `Convert ipynb to html, tex, pdf` を実行すると, このファイルから jmd, html, tex, pdf ファイルが作成される.  jmdファイルはJulia言語のコードを含むmarkdownファイルである.
+
+
+```julia
+using Plots
+gr()
+ENV["PLOTS_TEST"] = "true"
+using SpecialFunctions
+using Distributions
+```
+
+# ガンマ函数とベータ函数
+
+ガンマ函数とベータ函数は次のように定義される: $\real s, \real p, \real q > 0$ のとき
+
+$$
+\begin{aligned}
+&
+\Gamma(s) = \int_0^\infty e^{-x} x^{s-1}\,dx,
+\\ &
+B(p,q) = \int_0^1 x^{p-1} (1-x)^{q-1}\,dx
+\end{aligned}
+$$
+
+と定義される. 
+
+**注意：** 複数行の数式は二重のドルマークで囲んだ aligned モードを使うことにした. `weave()` 函数で作成した tex ファイルを訂正を施す必要がある.
+
+## ガンマ函数のグラフ
+
+ガンマ函数は階乗の連続的補間になっており, 急激に増大する函数になる. だから, グラフを描き易いように対数を取ったガンマ函数のグラフを描いてみよう. せっかくなので, グラフの中でStirlingの近似公式
+
+$$
+\log\Gamma(s) \approx s \log s - s - \frac{1}{2}\log s + \log\sqrt{2\pi}
+\quad\text{as $s\to\infty$}
+$$
+
+の右辺と比較してみよう. 以下のプロットを見ればわかるようにほぼぴったり一致している.
+
+```julia
+## 対数ガンマ函数のスターリング近似
+
+lstirling(s) = s*log(s) - s - log(s)/2 + log(√(2π))
+s = range(0.1, 10, length=400)
+plot(legend=:topleft)
+plot!(s, lgamma.(s), label="log Gamma(s)", lw=2)
+plot!(s, lstirling.(s), label="Stirling approximation", ls=:dash, lw=2)
+```
+
+## ガンマ分布とベータ分布の密度函数のグラフ
+
+$\theta,k,a,b>0$ に対して, ガンマ分布とベータ分布の確率密度函数がそれぞれ次のように定義される:
+
+$$
+\begin{aligned}
+&
+p(x) = \frac{1}{\theta^k \Gamma(k)} e^{-x/\theta} x^{k-1} \quad (x>0),
+\\ &
+q(x) = \frac{1}{B(a,b)} x^{a-1}(1-x)^{b-1} \quad (0 < x < 1).
+\end{aligned}
+$$
+
+これらは $k,q,b$ が大きなとき, それぞれ正規分布の確率密度函数
+
+$$
+\begin{aligned}
+f(x|\mu,\sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-(x-\mu)^2/(2\sigma^2)}
+\end{aligned}
+$$
+
+の $(\mu,\sigma^2)=(k\theta, k\theta^2), (a/(a+b), ab/((a+b)^2(a+b+1)))$ の場合でよく近似されるようになる(中心極限定理の特別な場合). そのことをグラフを描いて確認しよう.
+
+```julia
+## ガンマ分布の場合
+
+k, θ = 100, 1/80
+gdist = Gamma(k, θ)
+ndist = Normal(k*θ, √k*θ)
+x = range(0, 2.7, length=400)
+plot(title="Normal approximation of Gamma distribution")
+plot(legend=:topright)
+plot!(x, pdf.(gdist, x), label="Gamma($k, $θ)", lw=2)
+plot!(x, pdf.(ndist, x), label="Normal approximation", ls=:dash, lw=2)
+```
+
+```julia
+## ベータ分布の場合
+
+a, b = 40, 60
+bdist = Beta(a, b)
+ndist = Normal(a/(a+b), √(a*b/((a+b)^2*(a+b+1))))
+x = range(0, 1, length=400)
+plot(title="Normal approximation of Beta distribution")
+plot(legend=:topright)
+plot!(x, pdf.(bdist, x), label="Beta($a, $b)", lw=2)
+plot!(x, pdf.(ndist, x), label="Normal approximation", ls=:dash, lw=2)
+```
+
+# Riemannのゼータ函数
+
+Riemannのゼータ函数は $\real s > 1$ において
+
+$$
+\zeta(s) = \sum_{n=1}^\infty \frac{1}{n^s} \quad (\real s > 1)
+$$
+
+と定義され, 唯一の極 $s=1$ を除いた複素平面全体に解析接続される. 
+
+Riemannのゼータ函数の $0\leqq \real s\leqq 1$ (critical strip)における零点を**非自明な零点**と呼ぶ. 
+
+**Riemann予想:** Riemannのゼータ函数の非自明な零点はすべて直線 $\real s=1/2$ 上に乗っている. 
+
+Riemannのゼータ函数の非自明な零点は素数の分布の精密な評価と関係している.
+
+Riemann予想の成立を(数学的な証明にはならないが)数値的な計算で確認してみよう
+
+## Riemannのゼータ函数の絶対値の対数のheatmap
+
+```julia
+f(s) = max(min(log(abs(zeta(s))), 3), -5)
+x = range(0, 1, length=100)
+y = range(10, 45, length=400)
+s = @. x + im*y'
+plot(size=(720, 180))
+title!("log(abs(zeta(x+iy)))", titlefontsize=12)
+heatmap!(y, x, f.(s), color=:thermal)
+xlabel!("y")
+ylabel!("x")
+hline!([0.5], ls=:dot, color=:cyan, label="")
+```
+
+## Riemannのゼータ函数の絶対値の Re s = 1/2 上の様子
+
+```julia
+f(s) = abs(zeta(s))
+x = 1/2
+y = range(10, 45, length=1000)
+s = @. x + im*y
+plot(size=(720, 250))
+title!("abs(zeta(0.5+iy)))", titlefontsize=12)
+plot!(y, f.(s), label="")
+xlabel!("y")
+```
+
+# 手書きのノート
+
+## ガンマ函数とベータ函数入門(1)
+
+![ガンマ函数とベータ函数入門1](images/GammaBeta01.jpg)
+
+## ガンマ函数とベータ函数入門(2)
+
+![ガンマ函数とベータ函数入門2](images/GammaBeta02.jpg)
+
+## Hurwitzのゼータ函数とガンマ函数の関係
+
+![Hurwitzのゼータ函数とガンマ函数の関係](images/HurwitzGamma.jpg)
+
+
+```julia
+```
