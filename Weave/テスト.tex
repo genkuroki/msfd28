@@ -1,6 +1,6 @@
 \documentclass[12pt,a4paper,xelatex,ja=standard]{bxjsarticle}
 
-\geometry{top=1cm, bottom=1cm, left=2cm, right=2cm}
+\geometry{top=0cm, bottom=1cm, left=2cm, right=2cm}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{bm}
@@ -139,6 +139,7 @@
 (*@\HLJLn{ENV}@*)(*@\HLJLp{[}@*)(*@\HLJLs{"PLOTS{\_}TEST"}@*)(*@\HLJLp{]}@*) (*@\HLJLoB{=}@*) (*@\HLJLs{"true"}@*)
 (*@\HLJLk{using}@*) (*@\HLJLn{SpecialFunctions}@*)
 (*@\HLJLk{using}@*) (*@\HLJLn{Distributions}@*)
+(*@\HLJLk{using}@*) (*@\HLJLn{SymPy}@*)
 \end{lstlisting}
 
 
@@ -166,11 +167,9 @@ B(p,q) = \int_0^1 x^{p-1} (1-x)^{q-1}\,dx
 
 
 \begin{lstlisting}
-(*@\HLJLcs{{\#}{\#} 対数ガンマ函数のスターリング近似}@*)
-
 (*@\HLJLnf{lstirling}@*)(*@\HLJLp{(}@*)(*@\HLJLn{s}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{s}@*)(*@\HLJLoB{*}@*)(*@\HLJLnf{log}@*)(*@\HLJLp{(}@*)(*@\HLJLn{s}@*)(*@\HLJLp{)}@*) (*@\HLJLoB{-}@*) (*@\HLJLn{s}@*) (*@\HLJLoB{-}@*) (*@\HLJLnf{log}@*)(*@\HLJLp{(}@*)(*@\HLJLn{s}@*)(*@\HLJLp{)}@*)(*@\HLJLoB{/}@*)(*@\HLJLni{2}@*) (*@\HLJLoB{+}@*) (*@\HLJLnf{log}@*)(*@\HLJLp{(}@*)(*@\HLJLoB{\ensuremath{\surd}}@*)(*@\HLJLp{(}@*)(*@\HLJLni{2}@*)(*@\HLJLn{\ensuremath{\pi}}@*)(*@\HLJLp{))}@*)
 (*@\HLJLn{s}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{range}@*)(*@\HLJLp{(}@*)(*@\HLJLnfB{0.1}@*)(*@\HLJLp{,}@*) (*@\HLJLni{10}@*)(*@\HLJLp{,}@*) (*@\HLJLn{length}@*)(*@\HLJLoB{=}@*)(*@\HLJLni{400}@*)(*@\HLJLp{)}@*)
-(*@\HLJLnf{plot}@*)(*@\HLJLp{(}@*)(*@\HLJLn{legend}@*)(*@\HLJLoB{=:}@*)(*@\HLJLn{topleft}@*)(*@\HLJLp{)}@*)
+(*@\HLJLnf{plot}@*)(*@\HLJLp{(}@*)(*@\HLJLn{size}@*)(*@\HLJLoB{=}@*)(*@\HLJLp{(}@*)(*@\HLJLni{500}@*)(*@\HLJLp{,}@*) (*@\HLJLni{300}@*)(*@\HLJLp{),}@*) (*@\HLJLn{legend}@*)(*@\HLJLoB{=:}@*)(*@\HLJLn{topleft}@*)(*@\HLJLp{)}@*)
 (*@\HLJLnf{plot!}@*)(*@\HLJLp{(}@*)(*@\HLJLn{s}@*)(*@\HLJLp{,}@*) (*@\HLJLn{lgamma}@*)(*@\HLJLoB{.}@*)(*@\HLJLp{(}@*)(*@\HLJLn{s}@*)(*@\HLJLp{),}@*) (*@\HLJLn{label}@*)(*@\HLJLoB{=}@*)(*@\HLJLs{"log Gamma(s)"}@*)(*@\HLJLp{,}@*) (*@\HLJLn{lw}@*)(*@\HLJLoB{=}@*)(*@\HLJLni{2}@*)(*@\HLJLp{)}@*)
 (*@\HLJLnf{plot!}@*)(*@\HLJLp{(}@*)(*@\HLJLn{s}@*)(*@\HLJLp{,}@*) (*@\HLJLn{lstirling}@*)(*@\HLJLoB{.}@*)(*@\HLJLp{(}@*)(*@\HLJLn{s}@*)(*@\HLJLp{),}@*) (*@\HLJLn{label}@*)(*@\HLJLoB{=}@*)(*@\HLJLs{"Stirling approximation"}@*)(*@\HLJLp{,}@*) (*@\HLJLn{ls}@*)(*@\HLJLoB{=:}@*)(*@\HLJLn{dash}@*)(*@\HLJLp{,}@*) (*@\HLJLn{lw}@*)(*@\HLJLoB{=}@*)(*@\HLJLni{2}@*)(*@\HLJLp{)}@*)
 \end{lstlisting}
@@ -203,14 +202,13 @@ f(x|\mu,\sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-(x-\mu)^2/(2\sigma^2)}
 
 
 \begin{lstlisting}
-(*@\HLJLcs{{\#}{\#} ガンマ分布の場合}@*)
-
 (*@\HLJLn{k}@*)(*@\HLJLp{,}@*) (*@\HLJLn{\ensuremath{\theta}}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{100}@*)(*@\HLJLp{,}@*) (*@\HLJLni{1}@*)(*@\HLJLoB{/}@*)(*@\HLJLni{80}@*)
 (*@\HLJLn{gdist}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{Gamma}@*)(*@\HLJLp{(}@*)(*@\HLJLn{k}@*)(*@\HLJLp{,}@*) (*@\HLJLn{\ensuremath{\theta}}@*)(*@\HLJLp{)}@*)
 (*@\HLJLn{ndist}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{Normal}@*)(*@\HLJLp{(}@*)(*@\HLJLn{k}@*)(*@\HLJLoB{*}@*)(*@\HLJLn{\ensuremath{\theta}}@*)(*@\HLJLp{,}@*) (*@\HLJLoB{\ensuremath{\surd}}@*)(*@\HLJLn{k}@*)(*@\HLJLoB{*}@*)(*@\HLJLn{\ensuremath{\theta}}@*)(*@\HLJLp{)}@*)
 (*@\HLJLn{x}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{range}@*)(*@\HLJLp{(}@*)(*@\HLJLni{0}@*)(*@\HLJLp{,}@*) (*@\HLJLnfB{2.7}@*)(*@\HLJLp{,}@*) (*@\HLJLn{length}@*)(*@\HLJLoB{=}@*)(*@\HLJLni{400}@*)(*@\HLJLp{)}@*)
-(*@\HLJLnf{plot}@*)(*@\HLJLp{(}@*)(*@\HLJLn{title}@*)(*@\HLJLoB{=}@*)(*@\HLJLs{"Normal approximation of Gamma distribution"}@*)(*@\HLJLp{)}@*)
-(*@\HLJLnf{plot}@*)(*@\HLJLp{(}@*)(*@\HLJLn{legend}@*)(*@\HLJLoB{=:}@*)(*@\HLJLn{topright}@*)(*@\HLJLp{)}@*)
+(*@\HLJLnf{plot}@*)(*@\HLJLp{(}@*)(*@\HLJLn{size}@*)(*@\HLJLoB{=}@*)(*@\HLJLp{(}@*)(*@\HLJLni{500}@*)(*@\HLJLp{,}@*) (*@\HLJLni{300}@*)(*@\HLJLp{))}@*)
+(*@\HLJLnf{title!}@*)(*@\HLJLp{(}@*)(*@\HLJLs{"Normal approximation of Gamma distribution"}@*)(*@\HLJLp{,}@*) (*@\HLJLn{titlefontsize}@*)(*@\HLJLoB{=}@*)(*@\HLJLni{12}@*)(*@\HLJLp{)}@*)
+(*@\HLJLnf{plot!}@*)(*@\HLJLp{(}@*)(*@\HLJLn{legend}@*)(*@\HLJLoB{=:}@*)(*@\HLJLn{topright}@*)(*@\HLJLp{)}@*)
 (*@\HLJLnf{plot!}@*)(*@\HLJLp{(}@*)(*@\HLJLn{x}@*)(*@\HLJLp{,}@*) (*@\HLJLn{pdf}@*)(*@\HLJLoB{.}@*)(*@\HLJLp{(}@*)(*@\HLJLn{gdist}@*)(*@\HLJLp{,}@*) (*@\HLJLn{x}@*)(*@\HLJLp{),}@*) (*@\HLJLn{label}@*)(*@\HLJLoB{=}@*)(*@\HLJLs{"Gamma(}@*)(*@\HLJLsi{{\$}k}@*)(*@\HLJLs{, }@*)(*@\HLJLsi{{\$}\ensuremath{\theta}}@*)(*@\HLJLs{)"}@*)(*@\HLJLp{,}@*) (*@\HLJLn{lw}@*)(*@\HLJLoB{=}@*)(*@\HLJLni{2}@*)(*@\HLJLp{)}@*)
 (*@\HLJLnf{plot!}@*)(*@\HLJLp{(}@*)(*@\HLJLn{x}@*)(*@\HLJLp{,}@*) (*@\HLJLn{pdf}@*)(*@\HLJLoB{.}@*)(*@\HLJLp{(}@*)(*@\HLJLn{ndist}@*)(*@\HLJLp{,}@*) (*@\HLJLn{x}@*)(*@\HLJLp{),}@*) (*@\HLJLn{label}@*)(*@\HLJLoB{=}@*)(*@\HLJLs{"Normal approximation"}@*)(*@\HLJLp{,}@*) (*@\HLJLn{ls}@*)(*@\HLJLoB{=:}@*)(*@\HLJLn{dash}@*)(*@\HLJLp{,}@*) (*@\HLJLn{lw}@*)(*@\HLJLoB{=}@*)(*@\HLJLni{2}@*)(*@\HLJLp{)}@*)
 \end{lstlisting}
@@ -221,14 +219,13 @@ f(x|\mu,\sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-(x-\mu)^2/(2\sigma^2)}
 \end{center}
 
 \begin{lstlisting}
-(*@\HLJLcs{{\#}{\#} ベータ分布の場合}@*)
-
 (*@\HLJLn{a}@*)(*@\HLJLp{,}@*) (*@\HLJLn{b}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{40}@*)(*@\HLJLp{,}@*) (*@\HLJLni{60}@*)
 (*@\HLJLn{bdist}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{Beta}@*)(*@\HLJLp{(}@*)(*@\HLJLn{a}@*)(*@\HLJLp{,}@*) (*@\HLJLn{b}@*)(*@\HLJLp{)}@*)
 (*@\HLJLn{ndist}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{Normal}@*)(*@\HLJLp{(}@*)(*@\HLJLn{a}@*)(*@\HLJLoB{/}@*)(*@\HLJLp{(}@*)(*@\HLJLn{a}@*)(*@\HLJLoB{+}@*)(*@\HLJLn{b}@*)(*@\HLJLp{),}@*) (*@\HLJLoB{\ensuremath{\surd}}@*)(*@\HLJLp{(}@*)(*@\HLJLn{a}@*)(*@\HLJLoB{*}@*)(*@\HLJLn{b}@*)(*@\HLJLoB{/}@*)(*@\HLJLp{((}@*)(*@\HLJLn{a}@*)(*@\HLJLoB{+}@*)(*@\HLJLn{b}@*)(*@\HLJLp{)}@*)(*@\HLJLoB{{\textasciicircum}}@*)(*@\HLJLni{2}@*)(*@\HLJLoB{*}@*)(*@\HLJLp{(}@*)(*@\HLJLn{a}@*)(*@\HLJLoB{+}@*)(*@\HLJLn{b}@*)(*@\HLJLoB{+}@*)(*@\HLJLni{1}@*)(*@\HLJLp{))))}@*)
 (*@\HLJLn{x}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{range}@*)(*@\HLJLp{(}@*)(*@\HLJLni{0}@*)(*@\HLJLp{,}@*) (*@\HLJLni{1}@*)(*@\HLJLp{,}@*) (*@\HLJLn{length}@*)(*@\HLJLoB{=}@*)(*@\HLJLni{400}@*)(*@\HLJLp{)}@*)
-(*@\HLJLnf{plot}@*)(*@\HLJLp{(}@*)(*@\HLJLn{title}@*)(*@\HLJLoB{=}@*)(*@\HLJLs{"Normal approximation of Beta distribution"}@*)(*@\HLJLp{)}@*)
-(*@\HLJLnf{plot}@*)(*@\HLJLp{(}@*)(*@\HLJLn{legend}@*)(*@\HLJLoB{=:}@*)(*@\HLJLn{topright}@*)(*@\HLJLp{)}@*)
+(*@\HLJLnf{plot}@*)(*@\HLJLp{(}@*)(*@\HLJLn{size}@*)(*@\HLJLoB{=}@*)(*@\HLJLp{(}@*)(*@\HLJLni{500}@*)(*@\HLJLp{,}@*) (*@\HLJLni{300}@*)(*@\HLJLp{))}@*)
+(*@\HLJLnf{title!}@*)(*@\HLJLp{(}@*)(*@\HLJLs{"Normal approximation of Beta distribution"}@*)(*@\HLJLp{,}@*) (*@\HLJLn{titlefontsize}@*)(*@\HLJLoB{=}@*)(*@\HLJLni{12}@*)(*@\HLJLp{)}@*)
+(*@\HLJLnf{plot!}@*)(*@\HLJLp{(}@*)(*@\HLJLn{legend}@*)(*@\HLJLoB{=:}@*)(*@\HLJLn{topright}@*)(*@\HLJLp{)}@*)
 (*@\HLJLnf{plot!}@*)(*@\HLJLp{(}@*)(*@\HLJLn{x}@*)(*@\HLJLp{,}@*) (*@\HLJLn{pdf}@*)(*@\HLJLoB{.}@*)(*@\HLJLp{(}@*)(*@\HLJLn{bdist}@*)(*@\HLJLp{,}@*) (*@\HLJLn{x}@*)(*@\HLJLp{),}@*) (*@\HLJLn{label}@*)(*@\HLJLoB{=}@*)(*@\HLJLs{"Beta(}@*)(*@\HLJLsi{{\$}a}@*)(*@\HLJLs{, }@*)(*@\HLJLsi{{\$}b}@*)(*@\HLJLs{)"}@*)(*@\HLJLp{,}@*) (*@\HLJLn{lw}@*)(*@\HLJLoB{=}@*)(*@\HLJLni{2}@*)(*@\HLJLp{)}@*)
 (*@\HLJLnf{plot!}@*)(*@\HLJLp{(}@*)(*@\HLJLn{x}@*)(*@\HLJLp{,}@*) (*@\HLJLn{pdf}@*)(*@\HLJLoB{.}@*)(*@\HLJLp{(}@*)(*@\HLJLn{ndist}@*)(*@\HLJLp{,}@*) (*@\HLJLn{x}@*)(*@\HLJLp{),}@*) (*@\HLJLn{label}@*)(*@\HLJLoB{=}@*)(*@\HLJLs{"Normal approximation"}@*)(*@\HLJLp{,}@*) (*@\HLJLn{ls}@*)(*@\HLJLoB{=:}@*)(*@\HLJLn{dash}@*)(*@\HLJLp{,}@*) (*@\HLJLn{lw}@*)(*@\HLJLoB{=}@*)(*@\HLJLni{2}@*)(*@\HLJLp{)}@*)
 \end{lstlisting}
@@ -237,6 +234,29 @@ f(x|\mu,\sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-(x-\mu)^2/(2\sigma^2)}
 \begin{center}
 \includegraphics[width=0.8\linewidth]{figures/テスト_4_1.pdf}
 \end{center}
+
+\subsection{上で使ったガンマ函数の公式}
+上で使ったガンマ分布の確率密度函数 $p(x)=e^{-x/\theta}x^{k-1}/(\theta^k\Gamma(k))$ ($x>0$) が確率密度函数であることを示すためには, それの $0$ から $\infty$ までの積分が $1$ になること, すなわち, 
+\[
+\int_0^\infty e^{-x/\theta} x^{k-1}\,dx = \theta^k \Gamma(k)
+\quad (\theta, k > 0)
+\]
+が成立することを示さなければいけない. この公式は左辺を $x=\theta y$ で置換することによって得られる.
+
+そのことはSymPyを使っても確かめられる. (注意: 以下の計算は\ensuremath{\theta}をSymPyの変数として使用しているので Python 2.7 では不可能. Python 3.x を使いましょう.)
+
+
+\begin{lstlisting}
+(*@\HLJLn{k}@*)(*@\HLJLp{,}@*) (*@\HLJLn{\ensuremath{\theta}}@*)(*@\HLJLp{,}@*) (*@\HLJLn{x}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{symbols}@*)(*@\HLJLp{(}@*)(*@\HLJLs{"k \ensuremath{\theta} x"}@*)(*@\HLJLp{,}@*) (*@\HLJLn{positive}@*)(*@\HLJLoB{=}@*)(*@\HLJLkc{true}@*)(*@\HLJLp{)}@*)
+(*@\HLJLn{sol}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{simplify}@*)(*@\HLJLp{(}@*)(*@\HLJLnf{integrate}@*)(*@\HLJLp{(}@*)(*@\HLJLnf{exp}@*)(*@\HLJLp{(}@*)(*@\HLJLoB{-}@*)(*@\HLJLn{x}@*)(*@\HLJLoB{/}@*)(*@\HLJLn{\ensuremath{\theta}}@*)(*@\HLJLp{)}@*)(*@\HLJLoB{*}@*)(*@\HLJLn{x}@*)(*@\HLJLoB{{\textasciicircum}}@*)(*@\HLJLp{(}@*)(*@\HLJLn{k}@*)(*@\HLJLoB{-}@*)(*@\HLJLni{1}@*)(*@\HLJLp{),}@*) (*@\HLJLp{(}@*)(*@\HLJLn{x}@*)(*@\HLJLp{,}@*) (*@\HLJLni{0}@*)(*@\HLJLp{,}@*) (*@\HLJLn{oo}@*)(*@\HLJLp{)))}@*)
+(*@\HLJLn{solstr}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{replace}@*)(*@\HLJLp{(}@*)(*@\HLJLn{sympy}@*)(*@\HLJLoB{.}@*)(*@\HLJLnf{latex}@*)(*@\HLJLp{(}@*)(*@\HLJLn{sol}@*)(*@\HLJLp{),}@*) (*@\HLJLs{"\ensuremath{\theta}"}@*)(*@\HLJLoB{=>}@*)(*@\HLJLs{"}@*)(*@\HLJLse{{\textbackslash}{\textbackslash}}@*)(*@\HLJLs{theta"}@*)(*@\HLJLp{)}@*)
+(*@\HLJLnf{display}@*)(*@\HLJLp{(}@*)(*@\HLJLs{"text/html"}@*)(*@\HLJLp{,}@*) (*@\HLJLso{raw"{\$}{\$}{\textbackslash}int{\_}0{\textasciicircum}{\textbackslash}infty e{\textasciicircum}{\{}-x/{\textbackslash}theta{\}} x{\textasciicircum}{\{}k-1{\}}{\textbackslash},dx = "}@*) (*@\HLJLoB{*}@*) (*@\HLJLn{solstr}@*) (*@\HLJLoB{*}@*) (*@\HLJLso{raw"{\$}{\$}"}@*)(*@\HLJLp{);}@*)
+\end{lstlisting}
+
+
+$$\int_0^\infty e^{-x/\theta} x^{k-1}\,dx = \theta^{k} \Gamma\left(k\right)$$
+
+\textbf{注意:} LaTeXStrings.jl の \texttt{latexstring()} を使用して同じ数式を表示させると, \texttt{weave(～, doctype="md2html")} でうまく数式が表示されなくなる. 上のように mimetype \texttt{text/html} で \texttt{display} を使用し, 行末に \texttt{;} を付ければうまく表示されるようになる.
 
 \section{Riemannのゼータ函数}
 Riemannのゼータ函数は $\real s > 1$ において
@@ -260,7 +280,7 @@ Riemann予想の成立を(数学的な証明にはならないが)数値的な�
 (*@\HLJLn{x}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{range}@*)(*@\HLJLp{(}@*)(*@\HLJLni{0}@*)(*@\HLJLp{,}@*) (*@\HLJLni{1}@*)(*@\HLJLp{,}@*) (*@\HLJLn{length}@*)(*@\HLJLoB{=}@*)(*@\HLJLni{100}@*)(*@\HLJLp{)}@*)
 (*@\HLJLn{y}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{range}@*)(*@\HLJLp{(}@*)(*@\HLJLni{10}@*)(*@\HLJLp{,}@*) (*@\HLJLni{45}@*)(*@\HLJLp{,}@*) (*@\HLJLn{length}@*)(*@\HLJLoB{=}@*)(*@\HLJLni{400}@*)(*@\HLJLp{)}@*)
 (*@\HLJLn{s}@*) (*@\HLJLoB{=}@*) @(*@\HLJLoB{.}@*) (*@\HLJLn{x}@*) (*@\HLJLoB{+}@*) (*@\HLJLn{im}@*)(*@\HLJLoB{*}@*)(*@\HLJLn{y}@*)(*@\HLJLoB{{\textquotesingle}}@*)
-(*@\HLJLnf{plot}@*)(*@\HLJLp{(}@*)(*@\HLJLn{size}@*)(*@\HLJLoB{=}@*)(*@\HLJLp{(}@*)(*@\HLJLni{720}@*)(*@\HLJLp{,}@*) (*@\HLJLni{180}@*)(*@\HLJLp{))}@*)
+(*@\HLJLnf{plot}@*)(*@\HLJLp{(}@*)(*@\HLJLn{size}@*)(*@\HLJLoB{=}@*)(*@\HLJLp{(}@*)(*@\HLJLni{750}@*)(*@\HLJLp{,}@*) (*@\HLJLni{180}@*)(*@\HLJLp{))}@*)
 (*@\HLJLnf{title!}@*)(*@\HLJLp{(}@*)(*@\HLJLs{"log(abs(zeta(x+iy)))"}@*)(*@\HLJLp{,}@*) (*@\HLJLn{titlefontsize}@*)(*@\HLJLoB{=}@*)(*@\HLJLni{12}@*)(*@\HLJLp{)}@*)
 (*@\HLJLnf{heatmap!}@*)(*@\HLJLp{(}@*)(*@\HLJLn{y}@*)(*@\HLJLp{,}@*) (*@\HLJLn{x}@*)(*@\HLJLp{,}@*) (*@\HLJLn{f}@*)(*@\HLJLoB{.}@*)(*@\HLJLp{(}@*)(*@\HLJLn{s}@*)(*@\HLJLp{),}@*) (*@\HLJLn{color}@*)(*@\HLJLoB{=:}@*)(*@\HLJLn{thermal}@*)(*@\HLJLp{)}@*)
 (*@\HLJLnf{xlabel!}@*)(*@\HLJLp{(}@*)(*@\HLJLs{"y"}@*)(*@\HLJLp{)}@*)
@@ -270,7 +290,7 @@ Riemann予想の成立を(数学的な証明にはならないが)数値的な�
 
 
 \begin{center}
-\includegraphics[width=0.8\linewidth]{figures/テスト_5_1.pdf}
+\includegraphics[width=0.8\linewidth]{figures/テスト_6_1.pdf}
 \end{center}
 
 \subsection{Riemannのゼータ函数の絶対値の Re s = 1/2 上の様子}
@@ -280,7 +300,7 @@ Riemann予想の成立を(数学的な証明にはならないが)数値的な�
 (*@\HLJLn{x}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{1}@*)(*@\HLJLoB{/}@*)(*@\HLJLni{2}@*)
 (*@\HLJLn{y}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{range}@*)(*@\HLJLp{(}@*)(*@\HLJLni{10}@*)(*@\HLJLp{,}@*) (*@\HLJLni{45}@*)(*@\HLJLp{,}@*) (*@\HLJLn{length}@*)(*@\HLJLoB{=}@*)(*@\HLJLni{1000}@*)(*@\HLJLp{)}@*)
 (*@\HLJLn{s}@*) (*@\HLJLoB{=}@*) @(*@\HLJLoB{.}@*) (*@\HLJLn{x}@*) (*@\HLJLoB{+}@*) (*@\HLJLn{im}@*)(*@\HLJLoB{*}@*)(*@\HLJLn{y}@*)
-(*@\HLJLnf{plot}@*)(*@\HLJLp{(}@*)(*@\HLJLn{size}@*)(*@\HLJLoB{=}@*)(*@\HLJLp{(}@*)(*@\HLJLni{720}@*)(*@\HLJLp{,}@*) (*@\HLJLni{250}@*)(*@\HLJLp{))}@*)
+(*@\HLJLnf{plot}@*)(*@\HLJLp{(}@*)(*@\HLJLn{size}@*)(*@\HLJLoB{=}@*)(*@\HLJLp{(}@*)(*@\HLJLni{720}@*)(*@\HLJLp{,}@*) (*@\HLJLni{200}@*)(*@\HLJLp{))}@*)
 (*@\HLJLnf{title!}@*)(*@\HLJLp{(}@*)(*@\HLJLs{"abs(zeta(0.5+iy)))"}@*)(*@\HLJLp{,}@*) (*@\HLJLn{titlefontsize}@*)(*@\HLJLoB{=}@*)(*@\HLJLni{12}@*)(*@\HLJLp{)}@*)
 (*@\HLJLnf{plot!}@*)(*@\HLJLp{(}@*)(*@\HLJLn{y}@*)(*@\HLJLp{,}@*) (*@\HLJLn{f}@*)(*@\HLJLoB{.}@*)(*@\HLJLp{(}@*)(*@\HLJLn{s}@*)(*@\HLJLp{),}@*) (*@\HLJLn{label}@*)(*@\HLJLoB{=}@*)(*@\HLJLs{""}@*)(*@\HLJLp{)}@*)
 (*@\HLJLnf{xlabel!}@*)(*@\HLJLp{(}@*)(*@\HLJLs{"y"}@*)(*@\HLJLp{)}@*)
@@ -288,7 +308,55 @@ Riemann予想の成立を(数学的な証明にはならないが)数値的な�
 
 
 \begin{center}
-\includegraphics[width=0.8\linewidth]{figures/テスト_6_1.pdf}
+\includegraphics[width=0.8\linewidth]{figures/テスト_7_1.pdf}
+\end{center}
+
+\subsection{Riemannのゼータ函数の Re s = 1/2 上での複素数値}
+直線 $\real s = 1/2$ での $\zeta(s)$ の値は何度も繰り返し複素平面の原点 $0$ を通る.
+
+
+\begin{lstlisting}
+(*@\HLJLn{x}@*) (*@\HLJLoB{=}@*) (*@\HLJLni{1}@*)(*@\HLJLoB{/}@*)(*@\HLJLni{2}@*)
+(*@\HLJLn{y}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{range}@*)(*@\HLJLp{(}@*)(*@\HLJLni{0}@*)(*@\HLJLp{,}@*) (*@\HLJLni{45}@*)(*@\HLJLp{,}@*) (*@\HLJLn{length}@*)(*@\HLJLoB{=}@*)(*@\HLJLni{1000}@*)(*@\HLJLp{)}@*)
+(*@\HLJLn{s}@*) (*@\HLJLoB{=}@*) @(*@\HLJLoB{.}@*) (*@\HLJLn{x}@*) (*@\HLJLoB{+}@*) (*@\HLJLn{im}@*)(*@\HLJLoB{*}@*)(*@\HLJLn{y}@*)
+(*@\HLJLn{w}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{zeta}@*)(*@\HLJLoB{.}@*)(*@\HLJLp{(}@*)(*@\HLJLn{s}@*)(*@\HLJLp{)}@*)
+(*@\HLJLnf{plot}@*)(*@\HLJLp{(}@*)(*@\HLJLn{size}@*)(*@\HLJLoB{=}@*)(*@\HLJLp{(}@*)(*@\HLJLni{500}@*)(*@\HLJLp{,}@*)(*@\HLJLni{400}@*)(*@\HLJLp{),}@*) (*@\HLJLn{legend}@*)(*@\HLJLoB{=:}@*)(*@\HLJLn{topleft}@*)(*@\HLJLp{)}@*)
+(*@\HLJLnf{title!}@*)(*@\HLJLp{(}@*)(*@\HLJLs{"zeta(0.5+it) for 0 < t < 45"}@*)(*@\HLJLp{,}@*) (*@\HLJLn{titlefontsize}@*)(*@\HLJLoB{=}@*)(*@\HLJLni{12}@*)(*@\HLJLp{)}@*)
+(*@\HLJLnf{plot!}@*)(*@\HLJLp{(}@*)(*@\HLJLnf{real}@*)(*@\HLJLp{(}@*)(*@\HLJLn{w}@*)(*@\HLJLp{),}@*) (*@\HLJLnf{imag}@*)(*@\HLJLp{(}@*)(*@\HLJLn{w}@*)(*@\HLJLp{),}@*) (*@\HLJLn{label}@*)(*@\HLJLoB{=}@*)(*@\HLJLs{"zeta(0.5+it)"}@*)(*@\HLJLp{)}@*)
+(*@\HLJLnf{scatter!}@*)(*@\HLJLp{([}@*)(*@\HLJLni{0}@*)(*@\HLJLp{],}@*) (*@\HLJLp{[}@*)(*@\HLJLni{0}@*)(*@\HLJLp{],}@*) (*@\HLJLn{markersize}@*)(*@\HLJLoB{=}@*)(*@\HLJLni{2}@*)(*@\HLJLp{,}@*) (*@\HLJLn{label}@*)(*@\HLJLoB{=}@*)(*@\HLJLs{""}@*)(*@\HLJLp{)}@*)
+(*@\HLJLnf{xlabel!}@*)(*@\HLJLp{(}@*)(*@\HLJLs{"x"}@*)(*@\HLJLp{)}@*)
+(*@\HLJLnf{ylabel!}@*)(*@\HLJLp{(}@*)(*@\HLJLs{"y"}@*)(*@\HLJLp{)}@*)
+(*@\HLJLnf{annotate!}@*)(*@\HLJLp{([(}@*)(*@\HLJLoB{-}@*)(*@\HLJLnfB{1.25}@*)(*@\HLJLp{,}@*) (*@\HLJLnfB{0.1}@*)(*@\HLJLp{,}@*) (*@\HLJLs{"zeta(0.5)"}@*)(*@\HLJLp{,}@*) (*@\HLJLni{9}@*)(*@\HLJLp{)])}@*)
+(*@\HLJLnf{annotate!}@*)(*@\HLJLp{([(}@*)(*@\HLJLnfB{2.55}@*)(*@\HLJLp{,}@*) (*@\HLJLnfB{1.7}@*)(*@\HLJLp{,}@*) (*@\HLJLs{"zeta(0.5+45i)"}@*)(*@\HLJLp{,}@*) (*@\HLJLni{9}@*)(*@\HLJLp{)])}@*)
+\end{lstlisting}
+
+
+\begin{center}
+\includegraphics[width=0.8\linewidth]{figures/テスト_8_1.pdf}
+\end{center}
+
+\subsection{Riemannのゼータ函数の Re s = 0.6 上での複素数値}
+直線 $\real s = 0.6$ での $\zeta(s)$ の値を計算すると複素平面の原点を避けて通っていることがわかる.
+
+
+\begin{lstlisting}
+(*@\HLJLn{x}@*) (*@\HLJLoB{=}@*) (*@\HLJLnfB{0.6}@*)
+(*@\HLJLn{y}@*) (*@\HLJLoB{=}@*) (*@\HLJLnf{range}@*)(*@\HLJLp{(}@*)(*@\HLJLni{0}@*)(*@\HLJLp{,}@*) (*@\HLJLni{45}@*)(*@\HLJLp{,}@*) (*@\HLJLn{length}@*)(*@\HLJLoB{=}@*)(*@\HLJLni{1000}@*)(*@\HLJLp{)}@*)
+(*@\HLJLn{s}@*) (*@\HLJLoB{=}@*) @(*@\HLJLoB{.}@*) (*@\HLJLn{x}@*) (*@\HLJLoB{+}@*) (*@\HLJLn{im}@*)(*@\HLJLoB{*}@*)(*@\HLJLn{y}@*)
+(*@\HLJLn{w}@*) (*@\HLJLoB{=}@*) (*@\HLJLn{zeta}@*)(*@\HLJLoB{.}@*)(*@\HLJLp{(}@*)(*@\HLJLn{s}@*)(*@\HLJLp{)}@*)
+(*@\HLJLnf{plot}@*)(*@\HLJLp{(}@*)(*@\HLJLn{size}@*)(*@\HLJLoB{=}@*)(*@\HLJLp{(}@*)(*@\HLJLni{500}@*)(*@\HLJLp{,}@*)(*@\HLJLni{400}@*)(*@\HLJLp{),}@*) (*@\HLJLn{legend}@*)(*@\HLJLoB{=:}@*)(*@\HLJLn{topleft}@*)(*@\HLJLp{)}@*)
+(*@\HLJLnf{title!}@*)(*@\HLJLp{(}@*)(*@\HLJLs{"zeta(0.6+it) for 0 < t < 45"}@*)(*@\HLJLp{,}@*) (*@\HLJLn{titlefontsize}@*)(*@\HLJLoB{=}@*)(*@\HLJLni{12}@*)(*@\HLJLp{)}@*)
+(*@\HLJLnf{plot!}@*)(*@\HLJLp{(}@*)(*@\HLJLnf{real}@*)(*@\HLJLp{(}@*)(*@\HLJLn{w}@*)(*@\HLJLp{),}@*) (*@\HLJLnf{imag}@*)(*@\HLJLp{(}@*)(*@\HLJLn{w}@*)(*@\HLJLp{),}@*) (*@\HLJLn{label}@*)(*@\HLJLoB{=}@*)(*@\HLJLs{"zeta(0.6+it)"}@*)(*@\HLJLp{)}@*)
+(*@\HLJLnf{scatter!}@*)(*@\HLJLp{([}@*)(*@\HLJLni{0}@*)(*@\HLJLp{],}@*) (*@\HLJLp{[}@*)(*@\HLJLni{0}@*)(*@\HLJLp{],}@*) (*@\HLJLn{markersize}@*)(*@\HLJLoB{=}@*)(*@\HLJLni{2}@*)(*@\HLJLp{,}@*) (*@\HLJLn{label}@*)(*@\HLJLoB{=}@*)(*@\HLJLs{""}@*)(*@\HLJLp{)}@*)
+(*@\HLJLnf{xlabel!}@*)(*@\HLJLp{(}@*)(*@\HLJLs{"x"}@*)(*@\HLJLp{)}@*)
+(*@\HLJLnf{ylabel!}@*)(*@\HLJLp{(}@*)(*@\HLJLs{"y"}@*)(*@\HLJLp{)}@*)
+(*@\HLJLnf{annotate!}@*)(*@\HLJLp{([(}@*)(*@\HLJLoB{-}@*)(*@\HLJLnfB{1.6}@*)(*@\HLJLp{,}@*) (*@\HLJLnfB{0.1}@*)(*@\HLJLp{,}@*) (*@\HLJLs{"zeta(0.6)"}@*)(*@\HLJLp{,}@*) (*@\HLJLni{9}@*)(*@\HLJLp{)])}@*)
+(*@\HLJLnf{annotate!}@*)(*@\HLJLp{([(}@*)(*@\HLJLnfB{2.55}@*)(*@\HLJLp{,}@*) (*@\HLJLnfB{1.4}@*)(*@\HLJLp{,}@*) (*@\HLJLs{"zeta(0.6+45i)"}@*)(*@\HLJLp{,}@*) (*@\HLJLni{9}@*)(*@\HLJLp{)])}@*)
+\end{lstlisting}
+
+
+\begin{center}
+\includegraphics[width=0.8\linewidth]{figures/テスト_9_1.pdf}
 \end{center}
 
 \section{手書きのノート}

@@ -1,6 +1,6 @@
 \documentclass[12pt,a4paper,xelatex,ja=standard]{bxjsarticle}
 
-\geometry{top=1cm, bottom=1cm, left=2cm, right=2cm}
+\geometry{top=0cm, bottom=1cm, left=2cm, right=2cm}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{bm}

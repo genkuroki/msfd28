@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2019.3.13)  13 MAR 2019 17:22
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2019.3.13)  13 MAR 2019 23:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1382,14 +1382,14 @@ LaTeX Font Info:    ... okay on input line 127.
 * vratio: 1:1
 * modes: includehead includefoot truedimen 
 * h-part:(L,W,R)=(56.9055pt, 384.11221pt, 56.9055pt)
-* v-part:(T,H,B)=(28.45274pt, 647.30022pt, 28.45274pt)
+* v-part:(T,H,B)=(0.0pt, 675.75296pt, 28.45274pt)
 * \paperwidth=497.92322pt
 * \paperheight=704.2057pt
 * \textwidth=384.11221pt
-* \textheight=599.87038pt
+* \textheight=628.32312pt
 * \oddsidemargin=-3.31912pt
 * \evensidemargin=-3.31912pt
-* \topmargin=-31.77188pt
+* \topmargin=-60.22462pt
 * \headheight=10.0pt
 * \headsep=13.71492pt
 * \topskip=10.0pt
@@ -1629,7 +1629,7 @@ LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <8> not available
 
 ]
 LaTeX Font Info:    Font shape `TU/IPAexMincho(0)/bx/n' will be
-(Font)              scaled to size 9.24713pt on input line 157.
+(Font)              scaled to size 9.24713pt on input line 158.
 Package microtype Info: Character `\quotesinglbase ' is missing
 (microtype)             in font `\TU/IPAexMincho(0)/bx/n/10'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -1643,7 +1643,7 @@ Package microtype Info: Character `\guilsinglright ' is missing
 (microtype)             in font `\TU/IPAexMincho(0)/bx/n/10'.
 (microtype)             Ignoring protrusion settings for this character.
 LaTeX Font Info:    Font shape `TU/IPAexGothic(0)/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 159.
+(Font)              scaled to size 11.09656pt on input line 160.
 Package microtype Info: Character `\quotesinglbase ' is missing
 (microtype)             in font `\TU/IPAexGothic(0)/m/n/12'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -1655,42 +1655,24 @@ Package microtype Info: Character `\guilsinglleft ' is missing
 (microtype)             Ignoring protrusion settings for this character.
 Package microtype Info: Character `\guilsinglright ' is missing
 (microtype)             in font `\TU/IPAexGothic(0)/m/n/12'.
-(microtype)             Ignoring protrusion settings for this character.
-
-
-LaTeX Font Warning: Font shape `TU/IPAexMincho(0)/m/it' undefined
-(Font)              using `TU/IPAexMincho(0)/m/n' instead on input line 169.
-
-LaTeX Font Info:    Font shape `TU/IPAexMincho(0)/m/n' will be
-(Font)              scaled to size 7.3977pt on input line 169.
-Package microtype Info: Character `\quotesinglbase ' is missing
-(microtype)             in font `\TU/IPAexMincho(0)/m/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `\quotedblbase ' is missing
-(microtype)             in font `\TU/IPAexMincho(0)/m/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `\guilsinglleft ' is missing
-(microtype)             in font `\TU/IPAexMincho(0)/m/n/8'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `\guilsinglright ' is missing
-(microtype)             in font `\TU/IPAexMincho(0)/m/n/8'.
 (microtype)             Ignoring protrusion settings for this character.
 File: figures/テスト_2_1.pdf Graphic file (type pdf)
 <use figures/テスト_2_1.pdf>
-[2]
+ [2]
 File: figures/テスト_3_1.pdf Graphic file (type pdf)
 <use figures/テスト_3_1.pdf>
  [3]
 File: figures/テスト_4_1.pdf Graphic file (type pdf)
 <use figures/テスト_4_1.pdf>
  [4]
-LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 262
+LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 282
 .
- (c:/texlive/2018/texmf-dist/tex/latex/lm/ts1lmtt.fd
+
+(c:/texlive/2018/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TS1/lmtt/bx/n' in size <8> not available
-(Font)              Font shape `TS1/lmtt/b/n' tried instead on input line 262.
+(Font)              Font shape `TS1/lmtt/b/n' tried instead on input line 282.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
@@ -1698,42 +1680,43 @@ Package microtype Info: Loading generic protrusion settings for font family
 Package microtype Info: Character `texttrademark ' is missing
 (microtype)             in font `TS1/lmtt/b/n/8'.
 (microtype)             Ignoring protrusion settings for this character.
-File: figures/テスト_5_1.pdf Graphic file (type pdf)
-<use figures/テスト_5_1.pdf>
- [5]
 File: figures/テスト_6_1.pdf Graphic file (type pdf)
 <use figures/テスト_6_1.pdf>
+ [5]
+File: figures/テスト_7_1.pdf Graphic file (type pdf)
+<use figures/テスト_7_1.pdf>
+File: figures/テスト_8_1.pdf Graphic file (type pdf)
+<use figures/テスト_8_1.pdf>
+ [6]
+File: figures/テスト_9_1.pdf Graphic file (type pdf)
+<use figures/テスト_9_1.pdf>
 File: images/GammaBeta01.jpg Graphic file (type bmp)
 <images/GammaBeta01.jpg>
- [6]
+ [7]
 File: images/GammaBeta02.jpg Graphic file (type bmp)
 <images/GammaBeta02.jpg>
-
-[7]
+ [8]
 File: images/HurwitzGamma.jpg Graphic file (type bmp)
 <images/HurwitzGamma.jpg>
- [8]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 315.
  [9]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 315.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 383.
+
+[10]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 383.
  (./テスト.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 315.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 315.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 383.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 383.
 Package rerunfilecheck Info: File `テスト.out' has not changed.
 (rerunfilecheck)             Checksum: .
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 315.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 383.
  ) 
 Here is how much of TeX's memory you used:
- 25308 strings out of 492970
- 481678 string characters out of 6137298
- 620690 words of memory out of 5000000
- 29035 multiletter control sequences out of 15000+600000
- 613491 words of font info for 101 fonts, out of 8000000 for 9000
+ 25320 strings out of 492970
+ 482360 string characters out of 6137298
+ 621685 words of memory out of 5000000
+ 29046 multiletter control sequences out of 15000+600000
+ 613483 words of font info for 100 fonts, out of 8000000 for 9000
  1353 hyphenation exceptions out of 8191
- 58i,8n,82p,10525b,1736s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 58i,8n,82p,10525b,1734s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on テスト.pdf (9 pages).
+Output written on テスト.pdf (10 pages).

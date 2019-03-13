@@ -14,3 +14,7 @@ Date: 2019-03-13
 * [数学ソフトウェアとフリードキュメント XXVIII](http://www.mathlibre.org/msfd/28-ja.html)
 * 2019年3月16日(土) 13:00–18:00
 * 東京工業大学 大岡山キャンパス 本館1階H116講義室
+
+## 内容
+
+* `Weave` 以下は [Weave.jl](https://github.com/mpastell/Weave.jl) の使い方の例.

@@ -13,6 +13,7 @@ gr()
 #ENV["PLOTS_TEST"] = "true"
 using SpecialFunctions
 using Distributions
+using SymPy
 ```
 
 ## ガンマ函数とベータ函数
@@ -44,11 +45,9 @@ $$
 の右辺と比較してみよう. 以下のプロットを見ればわかるようにほぼぴったり一致している.
 
 ```julia
-### 対数ガンマ函数のスターリング近似
-
 lstirling(s) = s*log(s) - s - log(s)/2 + log(√(2π))
 s = range(0.1, 10, length=400)
-plot(legend=:topleft)
+plot(size=(500, 300), legend=:topleft)
 plot!(s, lgamma.(s), label="log Gamma(s)", lw=2)
 plot!(s, lstirling.(s), label="Stirling approximation", ls=:dash, lw=2)
 ```
@@ -77,30 +76,50 @@ $$
 の $(\mu,\sigma^2)=(k\theta, k\theta^2), (a/(a+b), ab/((a+b)^2(a+b+1)))$ の場合でよく近似されるようになる(中心極限定理の特別な場合). そのことをグラフを描いて確認しよう.
 
 ```julia
-### ガンマ分布の場合
-
 k, θ = 100, 1/80
 gdist = Gamma(k, θ)
 ndist = Normal(k*θ, √k*θ)
 x = range(0, 2.7, length=400)
-plot(title="Normal approximation of Gamma distribution")
-plot(legend=:topright)
+plot(size=(500, 300))
+title!("Normal approximation of Gamma distribution", titlefontsize=12)
+plot!(legend=:topright)
 plot!(x, pdf.(gdist, x), label="Gamma($k, $θ)", lw=2)
 plot!(x, pdf.(ndist, x), label="Normal approximation", ls=:dash, lw=2)
 ```
 
 ```julia
-### ベータ分布の場合
-
 a, b = 40, 60
 bdist = Beta(a, b)
 ndist = Normal(a/(a+b), √(a*b/((a+b)^2*(a+b+1))))
 x = range(0, 1, length=400)
-plot(title="Normal approximation of Beta distribution")
-plot(legend=:topright)
+plot(size=(500, 300))
+title!("Normal approximation of Beta distribution", titlefontsize=12)
+plot!(legend=:topright)
 plot!(x, pdf.(bdist, x), label="Beta($a, $b)", lw=2)
 plot!(x, pdf.(ndist, x), label="Normal approximation", ls=:dash, lw=2)
 ```
+
+### 上で使ったガンマ函数の公式
+
+上で使ったガンマ分布の確率密度函数 $p(x)=e^{-x/\theta}x^{k-1}/(\theta^k\Gamma(k))$ ($x>0$) が確率密度函数であることを示すためには, それの $0$ から $\infty$ までの積分が $1$ になること, すなわち, 
+
+$$
+\int_0^\infty e^{-x/\theta} x^{k-1}\,dx = \theta^k \Gamma(k)
+\quad (\theta, k > 0)
+$$
+
+が成立することを示さなければいけない. この公式は左辺を $x=\theta y$ で置換することによって得られる.
+
+そのことはSymPyを使っても確かめられる. (注意: 以下の計算はθをSymPyの変数として使用しているので Python 2.7 では不可能. Python 3.x を使いましょう.)
+
+```julia
+k, θ, x = symbols("k θ x", positive=true)
+sol = simplify(integrate(exp(-x/θ)*x^(k-1), (x, 0, oo)))
+solstr = replace(sympy.latex(sol), "θ"=>"\\theta")
+display("text/html", raw"$$\int_0^\infty e^{-x/\theta} x^{k-1}\,dx = " * solstr * raw"$$");
+```
+
+**注意:** LaTeXStrings.jl の `latexstring()` を使用して同じ数式を表示させると, `weave(～, doctype="md2html")` でうまく数式が表示されなくなる. 上のように mimetype `text/html` で `display` を使用し, 行末に `;` を付ければうまく表示されるようになる.
 
 ## Riemannのゼータ函数
 
@@ -127,7 +146,7 @@ f(s) = max(min(log(abs(zeta(s))), 3), -5)
 x = range(0, 1, length=100)
 y = range(10, 45, length=400)
 s = @. x + im*y'
-plot(size=(720, 180))
+plot(size=(750, 180))
 title!("log(abs(zeta(x+iy)))", titlefontsize=12)
 heatmap!(y, x, f.(s), color=:thermal)
 xlabel!("y")
@@ -142,10 +161,48 @@ f(s) = abs(zeta(s))
 x = 1/2
 y = range(10, 45, length=1000)
 s = @. x + im*y
-plot(size=(720, 250))
+plot(size=(720, 200))
 title!("abs(zeta(0.5+iy)))", titlefontsize=12)
 plot!(y, f.(s), label="")
 xlabel!("y")
+```
+
+### Riemannのゼータ函数の Re s = 1/2 上での複素数値
+
+直線 $\real s = 1/2$ での $\zeta(s)$ の値は何度も繰り返し複素平面の原点 $0$ を通る.
+
+```julia
+x = 1/2
+y = range(0, 45, length=1000)
+s = @. x + im*y
+w = zeta.(s)
+plot(size=(500,400), legend=:topleft)
+title!("zeta(0.5+it) for 0 < t < 45", titlefontsize=12)
+plot!(real(w), imag(w), label="zeta(0.5+it)")
+scatter!([0], [0], markersize=2, label="")
+xlabel!("x")
+ylabel!("y")
+annotate!([(-1.25, 0.1, "zeta(0.5)", 9)])
+annotate!([(2.55, 1.7, "zeta(0.5+45i)", 9)])
+```
+
+### Riemannのゼータ函数の Re s = 0.6 上での複素数値
+
+直線 $\real s = 0.6$ での $\zeta(s)$ の値を計算すると複素平面の原点を避けて通っていることがわかる.
+
+```julia
+x = 0.6
+y = range(0, 45, length=1000)
+s = @. x + im*y
+w = zeta.(s)
+plot(size=(500,400), legend=:topleft)
+title!("zeta(0.6+it) for 0 < t < 45", titlefontsize=12)
+plot!(real(w), imag(w), label="zeta(0.6+it)")
+scatter!([0], [0], markersize=2, label="")
+xlabel!("x")
+ylabel!("y")
+annotate!([(-1.6, 0.1, "zeta(0.6)", 9)])
+annotate!([(2.55, 1.4, "zeta(0.6+45i)", 9)])
 ```
 
 ## 手書きのノート
@@ -162,6 +219,3 @@ xlabel!("y")
 
 ![Hurwitzのゼータ函数とガンマ函数の関係](images/HurwitzGamma.jpg)
 
-
-```julia
-```
