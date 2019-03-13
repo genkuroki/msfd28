@@ -10,7 +10,7 @@ date: 2019-03-13
 ```julia
 using Plots
 gr()
-ENV["PLOTS_TEST"] = "true"
+#ENV["PLOTS_TEST"] = "true"
 using SpecialFunctions
 using Distributions
 using SymPy
