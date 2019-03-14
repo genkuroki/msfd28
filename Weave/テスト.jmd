@@ -207,6 +207,7 @@ annotate!([(2.55, 1.4, "zeta(0.6+45i)", 9)])
 
 # 手書きのノート
 
+
 ## ガンマ函数とベータ函数入門(1)
 
 ![ガンマ函数とベータ函数入門1](images/GammaBeta01.jpg)
@@ -219,3 +220,5 @@ annotate!([(2.55, 1.4, "zeta(0.6+45i)", 9)])
 
 ![Hurwitzのゼータ函数とガンマ函数の関係](images/HurwitzGamma.jpg)
 
+```julia
+```
