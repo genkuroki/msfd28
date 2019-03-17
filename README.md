@@ -15,6 +15,8 @@ Date: 2019-03-16
 
 ## 内容
 
-* [JuliaとJupyterのすすめ msfd28genkuroki.ipynb](https://nbviewer.jupyter.org/github/genkuroki/msfd28/blob/master/msfd28genkuroki.ipynb) がメインの講演資料.
+* [JuliaとJupyterのすすめ (msfd28genkuroki.ipynb)](https://nbviewer.jupyter.org/github/genkuroki/msfd28/blob/master/msfd28genkuroki.ipynb) がメインの講演資料.
 
-* `Weave` 以下は [Weave.jl](https://github.com/mpastell/Weave.jl) の使い方の例.
+* [Weave以下](https://github.com/genkuroki/msfd28/tree/master/Weave)は [Weave.jl](https://github.com/mpastell/Weave.jl) の使い方の例.
+
+* [Julia v1.1 の Windows 8.1 へのインストール (install.ipynb)](https://nbviewer.jupyter.org/github/genkuroki/msfd28/blob/master/install.ipynb) (2019-03-18追加)
