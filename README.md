@@ -4,6 +4,8 @@ Author: 黒木 玄
 
 Date: 2019-03-16
 
+Repository: https://github.com/genkuroki/msfd28
+
 * Copyright 2019 Gen Kuroki
 * License: [MIT](https://opensource.org/licenses/MIT)
 
@@ -20,3 +22,7 @@ Date: 2019-03-16
 * [Weave以下](https://github.com/genkuroki/msfd28/tree/master/Weave)は [Weave.jl](https://github.com/mpastell/Weave.jl) の使い方の例.
 
 * [Julia v1.1 の Windows 8.1 へのインストール (install.ipynb)](https://nbviewer.jupyter.org/github/genkuroki/msfd28/blob/master/install.ipynb) (2019-03-18追加)
+
+## リンク
+
+* [ツイッターでの関連スレッド](https://twitter.com/genkuroki/status/1107337100251164672): このスレッドに講演では話し切れなかったことが色々書いてあります。
