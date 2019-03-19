@@ -1,11 +1,8 @@
 # 数学ソフトウェアとフリードキュメント XXVIII での講演資料
 
-Author: 黒木 玄
-
-Date: 2019-03-16
-
-Repository: https://github.com/genkuroki/msfd28
-
+* Author: 黒木 玄
+* Date: 2019-03-16
+* Repository: https://github.com/genkuroki/msfd28
 * Copyright 2019 Gen Kuroki
 * License: [MIT](https://opensource.org/licenses/MIT)
 
