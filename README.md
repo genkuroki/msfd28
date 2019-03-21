@@ -25,6 +25,8 @@
 
 * [税率一定の資産のランダム分配の帰結.ipynb](https://nbviewer.jupyter.org/github/genkuroki/msfd28/blob/master/税率一定の資産のランダム分配の帰結.ipynb)(2019-03-20に追加): モンテカルロシミュレーションとそのプロットの簡単な例
 
+* [Seaborn.jl examples.ipynb](https://nbviewer.jupyter.org/gist/genkuroki/2dc3b1e1d9da08022f22466f9f4281c3?flush_cache=true)(2019-03-21に追加): Pythonのseabornライブラリを使ってJuliaでプロットする方法
+
 ## リンク
 
 * [ツイッターでの関連スレッド](https://twitter.com/genkuroki/status/1107337100251164672): このスレッドに講演では話し切れなかったことが色々書いてあります。
