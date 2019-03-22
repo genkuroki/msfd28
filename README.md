@@ -23,9 +23,11 @@
 
 * [Julia v1.1 の Windows 8.1 へのインストール (install.ipynb)](https://nbviewer.jupyter.org/github/genkuroki/msfd28/blob/master/install.ipynb) (2019-03-18に追加)
 
-* [税率一定の資産のランダム分配の帰結.ipynb](https://nbviewer.jupyter.org/github/genkuroki/msfd28/blob/master/税率一定の資産のランダム分配の帰結.ipynb)(2019-03-20に追加): モンテカルロシミュレーションとそのプロットの簡単な例
+* [税率一定の資産のランダム分配の帰結.ipynb](https://nbviewer.jupyter.org/github/genkuroki/msfd28/blob/master/税率一定の資産のランダム分配の帰結.ipynb) (2019-03-20に追加): モンテカルロシミュレーションとそのプロットの簡単な例
 
 * [Seaborn.jl examples.ipynb](https://nbviewer.jupyter.org/gist/genkuroki/2dc3b1e1d9da08022f22466f9f4281c3?flush_cache=true)(2019-03-21に追加): Pythonのseabornライブラリを使ってJuliaでプロットする方法
+
+* [ベクトルや行列の作り方.ipynb](https://nbviewer.jupyter.org/github/genkuroki/msfd28/blob/master/%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%82%84%E8%A1%8C%E5%88%97%E3%81%AE%E4%BD%9C%E3%82%8A%E6%96%B9.ipynb) (2019-03-22に追加)
 
 ## リンク
 
