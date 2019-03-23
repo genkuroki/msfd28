@@ -39,14 +39,22 @@ JupyterLabには多数の[Extensions](https://github.com/topics/jupyterlab-exten
 
 ```julia
 julia> ENV["PATH"] = Conda.PYTHONDIR*";" * Conda.SCRIPTDIR*";" * ENV["PATH"]
-shell> pip install jupyterlab-latex
+shell> pip install https://github.com/jupyterlab/jupyterlab-latex.git
 shell> jupyter serverextension enable --sys-prefix jupyterlab_latex
 shell> jupyter labextension install @jupyterlab/latex
 ```
 
-これで jupyterlab-latex 0.4.1 がインストールされた(2019-03-23).
+これで jupyterlab-latex の最新版がインストールされた.
 
 **注意:** `conda install -c krinsman jupyterlab-latex` によってインストールすると 0.4.0 がインストールされてしまい, Windows上でSyncTexが動かなくなる.
+
+さらに以下の1行を ~/.jupyter/jupyter_notebook_config.py に追加した:
+
+```python
+c.LatexConfig.run_times = 3
+```
+
+**注意:** この1行を追加しないと, LaTeXのコンパイル結果に目次などが追加されなくなる.
 
 ### jupyterlab-git
 
