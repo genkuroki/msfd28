@@ -29,6 +29,8 @@
 
 * [ベクトルや行列の作り方.ipynb](https://nbviewer.jupyter.org/github/genkuroki/msfd28/blob/master/%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%82%84%E8%A1%8C%E5%88%97%E3%81%AE%E4%BD%9C%E3%82%8A%E6%96%B9.ipynb) (2019-03-22に追加)
 
+* [JupyterLabのインストール (install-jupyterlab.md)](install-jupyterlab.md) (2019-03-23に追加)
+
 ## リンク
 
 * [ツイッターでの関連スレッド](https://twitter.com/genkuroki/status/1107337100251164672): このスレッドに講演では話し切れなかったことが色々書いてあります。

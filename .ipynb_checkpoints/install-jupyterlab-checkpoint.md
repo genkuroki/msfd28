@@ -9,7 +9,7 @@ Julia環境化にminicondaでPython環境を作ったことを仮定する.
 
 パスの形式についてWindows形式を前提にしているので注意せよ.
 
-## JupyterLab自体のインストール
+## JupyterLab のインストール
 
 [JupyterLab](https://github.com/jupyterlab/jupyterlab)をjulia内から以下のようにしてインストール可能である.
 
@@ -29,7 +29,7 @@ C:\Users\genkuroki のような部分は自分のWindowsアカウントに合わ
 
 このようにして作ったショートカットをダブルクリックすればブラウザにJupyterLabのタブが開く.
 
-## JupyterLab Extensions
+## JupyterLab Extensions のインストール
 
 JupyterLabには多数の[Extensions](https://github.com/topics/jupyterlab-extension)が開発されている.
 
