@@ -54,6 +54,10 @@ shell> jupyter labextension install @jupyterlab/latex
 c.LatexConfig.run_times = 3
 ```
 
+実際に使うと以下のような感じになる. プレビュー部分が小さいのは目次と本文の一部が両方見えるようにするため. もちろん, 見易い大きさに拡大できる.
+
+<img src="images/jupyterlab-latex.png" width="80%" />
+
 **注意:** この1行を追加しないと, LaTeXのコンパイル結果に目次などが追加されなくなる.
 
 ### jupyterlab-git
