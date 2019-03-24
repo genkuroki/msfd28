@@ -60,9 +60,31 @@ c.LatexConfig.run_times = 3
 
 **注意:** この1行を追加しないと, LaTeXのコンパイル結果に目次などが追加されなくなる.
 
+### jupyterlab-github
+
+[jupyterlab-github](https://github.com/jupyterlab/jupyterlab-github) はJupyterLab内から自分のGitHubアカウント内のリポジトリに覗くための道具である. これを書いている時点では(2019-03-24), リポジトリに書き込む機能を持た**ない**.
+
+[jupyterlab-github](https://github.com/jupyterlab/jupyterlab-github) をインストールするにはjulia内でまず以下を実行する. shellモードには行頭で ; を入力すれば入れる.
+
+```julia
+julia> using Conda
+julia> ENV["PATH"] = Conda.PYTHONDIR*";" * Conda.SCRIPTDIR*";" * ENV["PATH"]
+shell> jupyter labextension install @jupyterlab/github
+shell> pip install jupyterlab_github
+shell> jupyter serverextension enable --sys-prefix jupyterlab_github
+```
+
+そして, [jupyterlab-githubのREADME](https://github.com/jupyterlab/jupyterlab-github/blob/master/README.md) の指示にしたがって, [GitHub](https://github.com/) のアカウントを取得し, access token を取得し,  ~/.jupyter/jupyter_notebook_config.py に次の1行を付け加えて取得した access token を登録する:
+
+```python
+c.GitHubConfig.access_token = '< YOUR_ACCESS_TOKEN >'
+```
+
+**警告:** access token が保存してあるファイルを他人に見える場所に置かないこと. access token は実質的に GitHub アカウントのパスワードである.
+
 ### jupyterlab-git
 
-[jupyterlab-git](https://github.com/jupyterlab/jupyterlab-git) をインストールするにはjulia内で以下を実行する.
+[jupyterlab-git](https://github.com/jupyterlab/jupyterlab-git) をインストールするにはjulia内で以下を実行する. shellモードには行頭で ; を入力すれば入れる.
 
 ```julia
 julia> using Conda
