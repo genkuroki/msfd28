@@ -80,6 +80,12 @@ shell> jupyter serverextension enable --sys-prefix jupyterlab_github
 c.GitHubConfig.access_token = '< YOUR_ACCESS_TOKEN >'
 ```
 
+**GitHubの使い方に関する参考ページ**
+
+* [GitHub DesktopをWindowsにインストール(2018年)](https://qiita.com/FukuharaYohei/items/7214f6552d2f002450da)
+* [GitHubにssh接続できるようにする](https://qiita.com/0ta2/items/25c27d447378b13a1ac3)
+* [ECDSA鍵をGitHubで使う](https://qiita.com/darai0512/items/c7b47d1b3fe06c4dea7d)
+
 **警告:** access token が保存してあるファイルを他人に見える場所に置かないこと. access token は実質的に GitHub アカウントのパスワードである.
 
 ### jupyterlab-git
@@ -96,7 +102,5 @@ shell> jupyter serverextension enable --py jupyterlab_git
 
 **注意:** pip を使わずに conda を使って jupyterlab-git をインストールしたら ["Go find a repo"](https://github.com/jupyterlab/jupyterlab-git/issues/179#issuecomment-412914042), ["You aren’t in a git repository"](https://github.com/jupyterlab/jupyterlab-git/issues/212) と言われてどうにもできなくなった.
 
-**参考ページ**
+現時点(2019-03-23)では, Windows上で [push and pull fail, GIT_TERMINAL_PROMPT=0 command not found \#291](https://github.com/jupyterlab/jupyterlab-git/issues/291) という状況であることに注意せよ.
 
-* [GitHubにssh接続できるようにする](https://qiita.com/0ta2/items/25c27d447378b13a1ac3)
-* [ECDSA鍵をGitHubで使う](https://qiita.com/darai0512/items/c7b47d1b3fe06c4dea7d)
