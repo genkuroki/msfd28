@@ -33,11 +33,32 @@ C:\Users\genkuroki のような部分は自分のWindowsアカウントに合わ
 
 JupyterLabには多数の[Extensions](https://github.com/topics/jupyterlab-extension)が開発されている.
 
+### jupyterlab-plotly
+
+[jupyterlab-plotly](https://github.com/jupyterlab/jupyter-renderers/tree/master/packages/plotly-extension) をインストールしておけば, 
+
+```julia
+using Plots
+plotlyjs()
+plot(sin)
+```
+
+でJupyterLab上のノートブック上でグラフをプロットすることができるようになる.
+
+[jupyterlab-plotly](https://github.com/jupyterlab/jupyter-renderers/tree/master/packages/plotly-extension) をインストールするにはjulia内で以下を実行する. shellモードには行頭で ; を入力すれば入れる.
+
+```julia
+julia> using Conda
+julia> ENV["PATH"] = Conda.PYTHONDIR*";" * Conda.SCRIPTDIR*";" * ENV["PATH"]
+shell> jupyter labextension install @jupyterlab/plotly-extension
+```
+
 ### jupyterlab-latex
 
 [jupyterlab-latex](https://github.com/jupyterlab/jupyterlab-latex) をインストールするにはjulia内で以下を実行する. shellモードには行頭で ; を入力すれば入れる.
 
 ```julia
+julia> using Conda
 julia> ENV["PATH"] = Conda.PYTHONDIR*";" * Conda.SCRIPTDIR*";" * ENV["PATH"]
 shell> pip install https://github.com/jupyterlab/jupyterlab-latex.git
 shell> jupyter serverextension enable --sys-prefix jupyterlab_latex
