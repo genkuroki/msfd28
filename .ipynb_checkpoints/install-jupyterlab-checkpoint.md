@@ -62,7 +62,7 @@ c.LatexConfig.run_times = 3
 
 ### jupyterlab-github
 
-[jupyterlab-github](https://github.com/jupyterlab/jupyterlab-github) はJupyterLab内から自分のGitHubアカウント内のリポジトリに覗くための道具である. これを書いている時点では(2019-03-24), リポジトリに書き込む機能を持たない.
+[jupyterlab-github](https://github.com/jupyterlab/jupyterlab-github) はJupyterLab内から自分のGitHubアカウント内のリポジトリに覗くための道具である. これを書いている時点では(2019-03-24), リポジトリに書き込む機能を持た**ない**.
 
 [jupyterlab-github](https://github.com/jupyterlab/jupyterlab-github) をインストールするにはjulia内でまず以下を実行する. shellモードには行頭で ; を入力すれば入れる.
 
@@ -95,3 +95,8 @@ shell> jupyter serverextension enable --py jupyterlab_git
 ```
 
 **注意:** pip を使わずに conda を使って jupyterlab-git をインストールしたら ["Go find a repo"](https://github.com/jupyterlab/jupyterlab-git/issues/179#issuecomment-412914042), ["You aren’t in a git repository"](https://github.com/jupyterlab/jupyterlab-git/issues/212) と言われてどうにもできなくなった.
+
+**参考ページ**
+
+* [GitHubにssh接続できるようにする](https://qiita.com/0ta2/items/25c27d447378b13a1ac3)
+* [ECDSA鍵をGitHubで使う](https://qiita.com/darai0512/items/c7b47d1b3fe06c4dea7d)
