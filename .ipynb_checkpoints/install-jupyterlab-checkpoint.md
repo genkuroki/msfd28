@@ -65,7 +65,7 @@ shell> jupyter serverextension enable --sys-prefix jupyterlab_latex
 shell> jupyter labextension install @jupyterlab/latex
 ```
 
-これで jupyterlab-latex の最新版がインストールされた.
+これで jupyterlab-latex の最新版がインストールされた. Windows以外の環境ではパスの区切り文字である `";"` の部分を適切に変更しなければいけない.
 
 **注意:** `conda install -c krinsman jupyterlab-latex` によってインストールすると 0.4.0 がインストールされてしまい, Windows上でSyncTexが動かなくなる.
 
