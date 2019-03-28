@@ -1,7 +1,7 @@
 # JupyterLabのインストール
 
 * Author: 黒木玄
-* Date: 2019-03-23
+* Date: 2019-03-23～2019-03-28
 
 これは [Julia v1.1.0 の Windows 8.1 へのインストール](https://nbviewer.jupyter.org/github/genkuroki/msfd28/blob/master/install.ipynb) の続き.
 
