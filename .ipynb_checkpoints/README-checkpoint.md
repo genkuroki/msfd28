@@ -31,6 +31,8 @@
 
 * [JupyterLabのインストール (install-jupyterlab.md)](install-jupyterlab.md) (2019-03-23に追加)
 
+* [Free Wolfram EngineをJupyterで使う方法](https://nbviewer.jupyter.org/github/genkuroki/msfd28/blob/master/Free%20Wolfram%20Engine.ipynb) (2019-05-26に追加)
+
 ## リンク
 
 * [ツイッターでの関連スレッド](https://twitter.com/genkuroki/status/1107337100251164672): このスレッドに講演では話し切れなかったことが色々書いてあります。
