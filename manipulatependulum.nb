@@ -1,0 +1,91 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframEngine 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       160,          7]
+NotebookDataLength[      3147,         82]
+NotebookOptionsPosition[      2916,         70]
+NotebookOutlinePosition[      3197,         84]
+CellTagsIndexPosition[      3154,         81]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`p$$ = {2, 1}, $CellContext`T$$ = 5, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`p$$], {2, 1}}, Automatic}, {{
+       Hold[$CellContext`T$$], 5}, 0, 20}}, Typeset`size$$ = {
+    360., {89., 96.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`T$15875$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`p$$ = {2, 1}, $CellContext`T$$ = 5}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`T$$, $CellContext`T$15875$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`sol$ = 
+         NDSolve[{Derivative[2][$CellContext`y][$CellContext`x] + Sin[
+               $CellContext`y[$CellContext`x]] == 0, $CellContext`y[0] == 
+            Part[$CellContext`p$$, 1], Derivative[1][$CellContext`y][0] == 
+            Part[$CellContext`p$$, 2]}, $CellContext`y, {$CellContext`x, 
+            0, $CellContext`T$$}]}, 
+        ParametricPlot[
+         Evaluate[
+          ReplaceAll[{
+            $CellContext`y[$CellContext`x], 
+            Derivative[
+            1][$CellContext`y][$CellContext`x]}, $CellContext`sol$]], \
+{$CellContext`x, 0, $CellContext`T$$}, 
+         PlotRange -> {{(-2) Pi, 2 Pi}, {-3, 3}}]], 
+      "Specifications" :> {{{$CellContext`p$$, {2, 1}}, Automatic, 
+         ControlType -> Locator}, {{$CellContext`T$$, 5}, 0, 20}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{417., {139., 146.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Input"]
+},
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (2019\:5e745\:670819\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[560, 20, 2352, 48, 70, "Input",ExpressionUUID->"07c9337e-96b7-44d2-ab88-20e5d23be313"]
+}
+]
+*)
+
+(* End of internal cache information *)
