@@ -28,12 +28,12 @@ Cell[BoxData[
        Hold[$CellContext`p$$], {2, 1}}, Automatic}, {{
        Hold[$CellContext`T$$], 5}, 0, 20}}, Typeset`size$$ = {
     360., {89., 96.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = True, $CellContext`T$16354$$ = 0}, 
+    Typeset`skipInitDone$$ = True, $CellContext`T$16357$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, 
       "Variables" :> {$CellContext`p$$ = {2, 1}, $CellContext`T$$ = 5}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`T$$, $CellContext`T$16354$$, 0]}, 
+        Hold[$CellContext`T$$, $CellContext`T$16357$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -83,7 +83,7 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[560, 20, 2352, 48, 70, "Input",ExpressionUUID->"532f108c-8f24-47a6-94a0-0ad2c6cda98c"]
+Cell[560, 20, 2352, 48, 70, "Input",ExpressionUUID->"33b3ac2a-32b6-4e6a-8bfd-5dcd93429ba7"]
 }
 ]
 *)
