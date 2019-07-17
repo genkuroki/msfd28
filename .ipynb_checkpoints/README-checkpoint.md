@@ -33,7 +33,7 @@
 
 * [Free Wolfram EngineをJupyterで使う方法](https://nbviewer.jupyter.org/github/genkuroki/msfd28/blob/master/Free%20Wolfram%20Engine.ipynb) (2019-05-26に追加)
 
-* [Jupytextを使う方法](https://nbviewer.jupyter.org/github/genkuroki/msfd28/blob/master/jupytext.jpynb) (2019-07-17に追加)
+* [Jupytextを使う方法](https://nbviewer.jupyter.org/github/genkuroki/msfd28/blob/master/jupytext/julia%20jupytext.ipynb) (2019-07-17に追加)
 
 ## リンク
 

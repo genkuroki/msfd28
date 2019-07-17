@@ -15,7 +15,7 @@
 # ---
 
 # %% [markdown]
-# # Juliaカーネルのjupytext
+# # Jupytextの使い方
 #
 # * 黒木玄
 # * 2019-07-17
