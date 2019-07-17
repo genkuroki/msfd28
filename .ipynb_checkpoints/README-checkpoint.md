@@ -23,7 +23,7 @@
 
 * [Julia v1.1 の Windows 8.1 へのインストール (install.ipynb)](https://nbviewer.jupyter.org/github/genkuroki/msfd28/blob/master/install.ipynb) (2019-03-18に追加)
 
-* [税率一定の資産のランダム分配の帰結.ipynb](https://nbviewer.jupyter.org/github/genkuroki/msfd28/blob/master/税率一定の資産のランダム分配の帰結.ipynb) (2019-03-20に追加): モンテカルロシミュレーションとそのプロットの簡単な例
+* [税率一定の資産のランダム分配の帰結.ipynb](https://nbviewer.jupyter.org/github/genkuroki/msfd28/blob/master/%E7%A8%8E%E7%8E%87%E4%B8%80%E5%AE%9A%E3%81%AE%E8%B3%87%E7%94%A3%E3%81%AE%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E5%88%86%E9%85%8D%E3%81%AE%E5%B8%B0%E7%B5%90.ipynb) (2019-03-20に追加): モンテカルロシミュレーションとそのプロットの簡単な例
 
 * [Seaborn.jl examples.ipynb](https://nbviewer.jupyter.org/gist/genkuroki/2dc3b1e1d9da08022f22466f9f4281c3?flush_cache=true) (2019-03-21に追加): Pythonのseabornライブラリを使ってJuliaでプロットする方法
 
@@ -32,6 +32,8 @@
 * [JupyterLabのインストール (install-jupyterlab.md)](install-jupyterlab.md) (2019-03-23に追加)
 
 * [Free Wolfram EngineをJupyterで使う方法](https://nbviewer.jupyter.org/github/genkuroki/msfd28/blob/master/Free%20Wolfram%20Engine.ipynb) (2019-05-26に追加)
+
+* [Jupytextを使う方法](https://nbviewer.jupyter.org/github/genkuroki/msfd28/blob/master/jupytext.jpynb) (2019-07-17に追加)
 
 ## リンク
 
